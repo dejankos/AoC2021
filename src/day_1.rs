@@ -42,7 +42,7 @@ mod tests {
     #[test]
     fn should_find_increases_day_1_part_2_input() {
         assert_eq!(
-            1477,
+            1523,
             count_sum_increases(&data_parser::parse_file("input/day_1_part_2_data.txt"))
         );
     }
