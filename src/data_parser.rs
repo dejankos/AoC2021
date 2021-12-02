@@ -27,12 +27,12 @@ where
         .collect()
 }
 
-fn parse<T, P, F>(path: P, f: F) -> Vec<T>
+pub fn parse<T, P, F>(path: P, f: F) -> Vec<T>
 where
     P: AsRef<Path>,
     F: Fn(&str) -> T,
 {
-    load_file(path).lines().map(|s| f(s)).collect()
+    load_file(path).lines().map(f).collect()
 }
 
 fn load_file<P>(path: P) -> String
