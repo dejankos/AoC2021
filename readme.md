@@ -2,7 +2,8 @@
 
 ### Days 
 * [Day 1: Sonar Sweep](/src/day_1.rs)  
-* [Day 1: Dive!](/src/day_2.rs)  
+* [Day 2: Dive!](/src/day_2.rs)  
+* [Day 3: Binary Diagnostic](/src/day_3.rs)  
 
 
 ```text
