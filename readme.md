@@ -5,6 +5,7 @@
 * [Day 2: Dive!](/src/day_2.rs)  
 * [Day 3: Binary Diagnostic](/src/day_3.rs)  
 * [Day 4: Giant Squid](/src/day_4.rs)  
+* [Day 4: Hydrothermal Venture](/src/day_5.rs)  
 
 
 ```text
