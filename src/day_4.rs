@@ -42,12 +42,10 @@ impl Bingo {
         let len = self.boards.len();
         for i in self.call_numbers.iter() {
             for (idx, b) in self.boards.iter_mut().enumerate() {
-                if !finished.contains(&idx) {
-                    if b.any_won(*i) {
-                        finished.insert(idx);
-                        if len - finished.len() == 0 {
-                            return b.sum_unmarked() * i;
-                        }
+                if !finished.contains(&idx) && b.any_won(*i) {
+                    finished.insert(idx);
+                    if len - finished.len() == 0 {
+                        return b.sum_unmarked() * i;
                     }
                 }
             }
