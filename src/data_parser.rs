@@ -35,7 +35,7 @@ where
     load_file(path).lines().map(f).collect()
 }
 
-fn load_file<P>(path: P) -> String
+pub fn load_file<P>(path: P) -> String
 where
     P: AsRef<Path>,
 {
