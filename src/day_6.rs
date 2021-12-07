@@ -1,12 +1,8 @@
 fn calc_lanterns(states: &[u8], days: usize) -> usize {
-    let mut fish_count = states
-        .iter()
-        .fold(&mut [0usize; 9], |acc, s| {
-            acc[*s as usize] += 1;
-            acc
-        })
-        .to_owned();
-
+    let mut fish_count = [0usize; 9];
+    for idx in 0..=8 {
+        fish_count[idx] = states.iter().filter(|n| **n as usize == idx).count();
+    }
     (0..days).into_iter().for_each(|_day| {
         let mut new = 0;
         for idx in 0..=8 {
