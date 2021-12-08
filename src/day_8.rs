@@ -16,10 +16,8 @@ fn map_digits(seg: (Vec<String>, Vec<String>)) -> usize {
 
     seg.0
         .iter()
-        .map(|s| map_seg_to_known_digit(s))
-        .filter(|o| o.is_some())
-        .for_each(|o| {
-            let val = o.unwrap();
+        .filter_map(|s| map_seg_to_known_digit(s))
+        .for_each(|val| {
             lookup.insert(val.0, val.1);
         });
 
