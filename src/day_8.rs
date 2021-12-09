@@ -1,4 +1,4 @@
-use std::collections::{HashMap};
+use std::collections::HashMap;
 
 fn calc_digits(seg: &[String]) -> usize {
     seg.iter().fold(0, |acc, s| match s.len() {
@@ -44,7 +44,7 @@ fn map_digits(seg: (Vec<String>, Vec<String>)) -> usize {
                     2
                 }
             }
-            _ => 99 // problems and part 2 is all of them" ,
+            _ => 99, // problems and part 2 is all of them" ,
         };
         if found != 99 {
             lookup.insert(found, s.into());

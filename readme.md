@@ -9,6 +9,8 @@
 * [Day 6: Lanternfish](/src/day_6.rs)  
 * [Day 7: The Treachery of Whales](/src/day_7.rs)  
 * [Day 8: Seven Segment Search](/src/day_8.rs)  
+* [Day 8: Seven Segment Search](/src/day_8.rs)  
+* [Day 9: Smoke Basin](/src/day_9.rs)  
 
 
 ```text
