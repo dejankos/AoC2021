@@ -49,18 +49,14 @@ fn find(
     current: usize,
     visited: &mut HashSet<(usize, usize)>,
 ) {
-    if current == 9 {
-        return;
-    }
     visited.insert((i, j));
-
     let values = find_nearby(m, i, j)
         .into_iter()
         .filter(|(_, i, j)| !visited.contains(&(*i, *j)))
         .collect::<Vec<(usize, usize, usize)>>();
 
     for v in values {
-        if v.0 > current {
+        if v.0 != 9 && v.0 > current {
             find(m, v.1, v.2, v.0, visited);
         }
     }
