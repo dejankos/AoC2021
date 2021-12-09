@@ -1,4 +1,5 @@
 use std::collections::HashSet;
+use itertools::Itertools;
 
 fn find_low_points_height_sum(m: Vec<Vec<usize>>) -> usize {
     let low_points = find_low_points_coordinates(&m);
@@ -12,7 +13,6 @@ fn find_low_points_coordinates(m: &[Vec<usize>]) -> Vec<(usize, usize)> {
         for (j, val) in row.iter().enumerate() {
             let min = find_nearby(m, i, j)
                 .into_iter()
-                .flatten()
                 .map(|(val, _, _)| val)
                 .min()
                 .unwrap();
@@ -56,7 +56,6 @@ fn find(
 
     let values = find_nearby(m, i, j)
         .into_iter()
-        .flatten()
         .filter(|(_, i, j)| !visited.contains(&(*i, *j)))
         .collect::<Vec<(usize, usize, usize)>>();
 
@@ -67,7 +66,7 @@ fn find(
     }
 }
 
-fn find_nearby(m: &[Vec<usize>], i: usize, j: usize) -> Vec<Option<(usize, usize, usize)>> {
+fn find_nearby(m: &[Vec<usize>], i: usize, j: usize) -> Vec<(usize, usize, usize)> {
     let up = if i > 0 {
         Some((m[i - 1][j], i - 1, j))
     } else {
@@ -90,6 +89,9 @@ fn find_nearby(m: &[Vec<usize>], i: usize, j: usize) -> Vec<Option<(usize, usize
     };
 
     vec![right, down, left, up]
+        .into_iter()
+        .flatten()
+        .collect_vec()
 }
 
 #[cfg(test)]
