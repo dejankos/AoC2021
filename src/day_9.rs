@@ -1,5 +1,5 @@
-use std::collections::HashSet;
 use itertools::Itertools;
+use std::collections::HashSet;
 
 fn find_low_points_height_sum(m: Vec<Vec<usize>>) -> usize {
     let low_points = find_low_points_coordinates(&m);
