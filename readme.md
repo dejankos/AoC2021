@@ -11,6 +11,7 @@
 * [Day 8: Seven Segment Search](/src/day_8.rs)  
 * [Day 9: Smoke Basin](/src/day_9.rs)  
 * [Day 10: Syntax Scoring](/src/day_10.rs)  
+* [Day 11: Dumbo Octopus](/src/day_11.rs)  
 
 
 ```text

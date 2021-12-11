@@ -41,3 +41,14 @@ where
 {
     std::fs::read_to_string(path).expect("Can't load file")
 }
+
+pub fn parse_matrix<P: AsRef<Path>>(p: P) -> Vec<Vec<usize>> {
+    parse_lines(p)
+        .iter()
+        .map(|line| {
+            line.chars()
+                .map(|c| c.to_string().parse::<usize>().unwrap())
+                .collect()
+        })
+        .collect()
+}

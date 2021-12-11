@@ -92,43 +92,33 @@ fn find_nearby(m: &[Vec<usize>], i: usize, j: usize) -> Vec<(usize, usize, usize
 
 #[cfg(test)]
 mod tests {
-    use std::path::Path;
+    
 
-    use crate::data_parser;
+    
+    use crate::data_parser::parse_matrix;
     use crate::day_9::{find_basins, find_low_points_height_sum};
 
     #[test]
     fn should_find_low_points_sum_example_data() {
-        let data = parse_data("input/day_9_example_data");
+        let data = parse_matrix("input/day_9_example_data");
         assert_eq!(15, find_low_points_height_sum(data));
     }
 
     #[test]
     fn should_find_basins() {
-        let data = parse_data("input/day_9_example_data");
+        let data = parse_matrix("input/day_9_example_data");
         assert_eq!(1134, find_basins(data));
     }
 
     #[test]
     fn should_find_basins_2() {
-        let data = parse_data("input/day_9_test_input");
+        let data = parse_matrix("input/day_9_test_input");
         assert_eq!(931200, find_basins(data));
     }
 
     #[test]
     fn should_find_low_points_sum() {
-        let data = parse_data("input/day_9_test_input");
+        let data = parse_matrix("input/day_9_test_input");
         assert_eq!(506, find_low_points_height_sum(data));
-    }
-
-    fn parse_data<P: AsRef<Path>>(p: P) -> Vec<Vec<usize>> {
-        data_parser::parse_lines(p)
-            .iter()
-            .map(|line| {
-                line.chars()
-                    .map(|c| c.to_string().parse::<usize>().unwrap())
-                    .collect()
-            })
-            .collect()
     }
 }
