@@ -18,7 +18,7 @@ fn find_first_sync(mut e_levels: Vec<Vec<usize>>) -> usize {
 }
 
 fn flash_step(e_levels: &mut Vec<Vec<usize>>) -> usize {
-    let mut flashed = HashSet::new();
+    let mut flashed = set![];
     for i in 0..10 {
         for j in 0..10 {
             increase_level(e_levels, i, j, &mut flashed);
@@ -70,9 +70,7 @@ fn neighbors(i: usize, j: usize) -> Vec<(usize, usize)> {
 
 #[cfg(test)]
 mod tests {
-    
 
-    
     use crate::data_parser::parse_matrix;
     use crate::day_11::{calc_flashes, find_first_sync};
 

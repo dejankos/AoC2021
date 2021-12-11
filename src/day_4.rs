@@ -38,7 +38,7 @@ impl Bingo {
     }
 
     fn last_win(&mut self) -> usize {
-        let mut finished = HashSet::new();
+        let mut finished = set![];
         let len = self.boards.len();
         for i in self.call_numbers.iter() {
             for (idx, b) in self.boards.iter_mut().enumerate() {

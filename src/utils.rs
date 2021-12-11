@@ -2,7 +2,7 @@
 macro_rules! set {
     ( $( $x:expr ),* ) => {
         {
-            let mut h_set = HashSet::new();
+            let h_set = HashSet::new();
             $(
                 h_set.insert($x);
             )*

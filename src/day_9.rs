@@ -32,7 +32,7 @@ fn find_basins(m: Vec<Vec<usize>>) -> usize {
     let mut sizes = vec![];
     for point in low_points {
         let val = m[point.0][point.1];
-        let mut points = HashSet::new();
+        let mut points = set![];
         find(&m, point.0, point.1, val, &mut points);
 
         sizes.push(points.len());
@@ -92,9 +92,6 @@ fn find_nearby(m: &[Vec<usize>], i: usize, j: usize) -> Vec<(usize, usize, usize
 
 #[cfg(test)]
 mod tests {
-    
-
-    
     use crate::data_parser::parse_matrix;
     use crate::day_9::{find_basins, find_low_points_height_sum};
 
