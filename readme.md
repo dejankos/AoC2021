@@ -13,6 +13,7 @@
 * [Day 10: Syntax Scoring](/src/day_10.rs)  
 * [Day 11: Dumbo Octopus](/src/day_11.rs)  
 * [Day 12: Passage Pathing](/src/day_12.rs)  
+* [Day 13: Transparent Origami](/src/day_13.rs)  
 
 
 ```text
