@@ -31,6 +31,50 @@ fn calc_polymers(polymer: &str, rules: HashMap<String, String>) -> usize {
     max - min
 }
 
+fn calc_polymers_2(polymer: &str, rules: HashMap<String, String>) -> usize {
+    let mut char_counts = HashMap::new();
+    let mut pair_counts = HashMap::new();
+    let mut pairs_counts_temp = HashMap::new();
+
+    polymer
+        .chars()
+        .for_each(|c| *char_counts.entry(c).or_insert(0) += 1);
+    polymer
+        .chars()
+        .tuple_windows::<(char, char)>()
+        .for_each(|(f, s)| {
+            *pair_counts.entry((f, s)).or_insert(0) += 1;
+        });
+
+    for _ in 0..40 {
+        std::mem::swap(&mut pair_counts, &mut pairs_counts_temp);
+        pair_counts.clear();
+
+        pairs_counts_temp.iter().for_each(|((f, s), v)| {
+            let middle = rules
+                .get(&format!("{}{}", f, s))
+                .unwrap()
+                .parse::<char>()
+                .unwrap();
+            *char_counts.entry(middle).or_insert(0) += v;
+
+            let l = (*f, middle);
+            let r = (middle, *s);
+
+            *pair_counts.entry(l).or_insert(0) += v;
+            *pair_counts.entry(r).or_insert(0) += v;
+        });
+    }
+
+    let (min, max) = char_counts
+        .values()
+        .into_iter()
+        .minmax()
+        .into_option()
+        .unwrap();
+    max - min
+}
+
 #[cfg(test)]
 mod tests {
     use std::collections::HashMap;
@@ -39,7 +83,7 @@ mod tests {
     use itertools::Itertools;
 
     use crate::data_parser;
-    use crate::day_14::calc_polymers;
+    use crate::day_14::{calc_polymers};
 
     #[test]
     fn should_calc_polymers_example_data() {
@@ -51,6 +95,12 @@ mod tests {
     fn should_calc_polymers_test_data() {
         let map = parse_data("input/day_14_test_data");
         assert_eq!(4517, calc_polymers("SFBBNKKOHHHPFOFFSPFV", map));
+    }
+
+    #[test]
+    fn should_calc_polymers_test_data_part_2() {
+        let map = parse_data("input/day_14_test_data");
+        assert_eq!(4704817645083, calc_polymers("SFBBNKKOHHHPFOFFSPFV", map));
     }
 
     fn parse_data<P: AsRef<Path>>(p: P) -> HashMap<String, String> {
