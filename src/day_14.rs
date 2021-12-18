@@ -83,7 +83,7 @@ mod tests {
     use itertools::Itertools;
 
     use crate::data_parser;
-    use crate::day_14::{calc_polymers};
+    use crate::day_14::calc_polymers;
 
     #[test]
     fn should_calc_polymers_example_data() {

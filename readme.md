@@ -15,6 +15,7 @@
 * [Day 12: Passage Pathing](/src/day_12.rs)  
 * [Day 13: Transparent Origami](/src/day_13.rs)  
 * [Day 14: Extended Polymerization](/src/day_14.rs)  
+* [Day 15: Chiton](/src/day_15.rs)  
 
 
 ```text
