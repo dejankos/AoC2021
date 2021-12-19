@@ -20,7 +20,7 @@ impl Pos {
                 let dim_0_value = matrix[i % matrix.len()][j % matrix[0].len()];
                 let mut new_value = dim_0_value + i_dim + j_dim;
                 if new_value > 9 {
-                    new_value = new_value % 9;
+                    new_value %= 9;
                 }
                 (Pos(i, j), new_value)
             })
@@ -57,7 +57,7 @@ mod tests {
     }
 
     #[test]
-    fn should_calc_shortest_path_test_data() {
+    fn should_calc_shortest_path_test_data_part_2() {
         let m = parse_matrix("input/day_15_test_data");
         assert_eq!(2778, find_shortest_path(&m, 5));
     }

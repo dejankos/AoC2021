@@ -16,6 +16,7 @@
 * [Day 13: Transparent Origami](/src/day_13.rs)  
 * [Day 14: Extended Polymerization](/src/day_14.rs)  
 * [Day 15: Chiton](/src/day_15.rs)  
+* [Day 16: Packet Decoder](/src/day_16.rs)  
 
 
 ```text
