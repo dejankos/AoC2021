@@ -17,6 +17,7 @@
 * [Day 14: Extended Polymerization](/src/day_14.rs)  
 * [Day 15: Chiton](/src/day_15.rs)  
 * [Day 16: Packet Decoder](/src/day_16.rs)  
+* [Day 17: Trick Shot](/src/day_17.rs)  
 
 
 ```text
