@@ -50,7 +50,6 @@ fn shoot_area(target: Target) -> (isize, u32) {
                     trajectory_y = tracking_point.1;
                 }
 
-
                 if target.within(&tracking_point) {
                     if trajectory_y > max_y {
                         max_y = trajectory_y;
